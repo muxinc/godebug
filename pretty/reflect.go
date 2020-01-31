@@ -211,7 +211,7 @@ func (r *reflector) val2node(val reflect.Value) (ret node) {
 			if !r.IncludeUnexported && sf.PkgPath != "" {
 				continue
 			}
-			if c.SkipStructField != nil && c.SkipStructField(typ, sf) {
+			if r.SkipStructField != nil && r.SkipStructField(typ, sf) {
 				continue
 			}
 			field := val.Field(i)
